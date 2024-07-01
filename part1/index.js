@@ -1,21 +1,35 @@
-/** tagged literal 문제 1번 **/
-// let pants = 20;
-// let socks = 100;
-
-// function analyzer(text, variable1, variable2) {
-//   console.log(text[1] + variable2 + text[0] + variable1);
-// }
-
-// analyzer`바지${pants} 양말${socks}`;
-
-/** tagged literal 문제 2번 **/
-let pants = 0;
-let socks = 100;
-
-function analyzer(text, variable1, variable2) {
-  if (variable1 == 0) {
-    console.log(text[0] + "다팔렸어요" + text[1] + variable2);
-  }
+/** rest parmeter problem **/
+function arrayTest(...parameters) {
+  console.log(parameters);
 }
 
-analyzer`바지${pants} 양말${socks}`;
+let newArray = arrayTest(1, 2, 3, 4, 5, 6, 7, 8, 9);
+console.log(newArray);
+
+/** max problem **/
+let numbers = [2, 3, 4, 5, 6, 1, 3, 2, 5, 5, 4, 6, 7];
+console.log(Math.max(...numbers));
+
+/** sort problem **/
+function sortTest(word) {
+  console.log([...word].sort());
+}
+
+sortTest("bear");
+
+/** data mining **/
+
+function countingLetters(str) {
+  let letterCount = {};
+  [...str].forEach((char) => {
+    if (letterCount[char]) {
+      letterCount[char]++;
+    } else {
+      letterCount[char] = 1;
+    }
+  });
+
+  console.log(letterCount);
+  return letterCount;
+}
+countingLetters("aacbbb");
