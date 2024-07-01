@@ -16,3 +16,20 @@ function sortTest(word) {
 }
 
 sortTest("bear");
+
+/** data mining **/
+
+function countingLetters(str) {
+  let letterCount = {};
+  [...str].forEach((char) => {
+    if (letterCount[char]) {
+      letterCount[char]++;
+    } else {
+      letterCount[char] = 1;
+    }
+  });
+
+  console.log(letterCount);
+  return letterCount;
+}
+countingLetters("aacbbb");
