@@ -1,35 +1,12 @@
-/** rest parmeter problem **/
-function arrayTest(...parameters) {
-  console.log(parameters);
+function testMachine(personName, productPrice) {
+  this.name = personName;
+  this.price = productPrice;
+  this.VAT = function () {
+    console.log(this.price * 0.1);
+  };
 }
-
-let newArray = arrayTest(1, 2, 3, 4, 5, 6, 7, 8, 9);
-console.log(newArray);
-
-/** max problem **/
-let numbers = [2, 3, 4, 5, 6, 1, 3, 2, 5, 5, 4, 6, 7];
-console.log(Math.max(...numbers));
-
-/** sort problem **/
-function sortTest(word) {
-  console.log([...word].sort());
-}
-
-sortTest("bear");
-
-/** data mining **/
-
-function countingLetters(str) {
-  let letterCount = {};
-  [...str].forEach((char) => {
-    if (letterCount[char]) {
-      letterCount[char]++;
-    } else {
-      letterCount[char] = 1;
-    }
-  });
-
-  console.log(letterCount);
-  return letterCount;
-}
-countingLetters("aacbbb");
+let product1 = new testMachine("shirts", 50000);
+let product2 = new testMachine("pants", 60000);
+// console.log(`상품: ${product1.name} 가격: ${product1.price}`);
+// console.log(`상품: ${product2.name} 가격: ${product2.price}`);
+product1.VAT();
